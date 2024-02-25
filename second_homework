@@ -1,0 +1,65 @@
+from math import sin, pow
+
+def main1(y):
+    if y<196:
+        return 73*(88+84*y**3+69*y**2)**7-1
+    elif 196<=y<212:
+        return 37*(abs(y))**4-46*y
+    elif 212<= y<287:
+       return y**4
+    elif 287<=y<363:
+        return sin(y)**2+8*(36*y**3)**4
+    elif y>=363:
+        return y**7-96*y**4
+
+
+def main2(y):
+    if y<196:
+        return 73*(88+84*y**3+69*y**2)**7-1
+    if 196<=y<212:
+        return 37*(abs(y))**4-46*y
+    if 212<= y<287:
+       return y**4
+    if 287<=y<363:
+        return sin(y)**2+8*(36*y**3)**4
+    if y>=363:
+        return y**7-96*y**4
+
+
+def main3(y):
+    res = 0
+    switcher = {
+        y < 196: 73*(88+84*y**3+69*y**2)**7-1,
+        196<=y<212: 37*(abs(y))**4-46*y,
+        212<= y<287: y**4,
+        287<=y<363: sin(y)**2+8*(36*y**3)**4,
+    }
+    res = switcher.get(True, y**7-96*y**4)
+    return res   
+
+def main4(y):
+    res = 0
+    switcher = {
+        y < 196: 73 * (88 + 84 * y**3 + 69 * y**2) ** 7 - 1,
+        196 <= y < 212: 37 * (abs(y)) ** 4 - 46 * y,
+        212 <= y < 287: y**4,
+        287 <= y < 363: sin(y) ** 2 + 8 * (36 * y**3) ** 4,
+        y >= 363: y**7 - 96 * y**4,
+    }
+    
+    res = switcher.get(True)
+    return res
+
+main = ( 
+    lambda y: 73 * (88 + 84 * y**3 + 69 * y**2) ** 7 - 1 
+    if y < 196 
+    else 37 * (abs(y)) ** 4 - 46 * y 
+    if 196 <= y < 212 
+    else y**4
+    if 212 <= y < 287 
+    else sin(y) ** 2 + 8 * (36 * y**3) ** 4
+    if 287 <= y < 363 
+    else y**7 - 96 * y**4
+)
+print(main(99))   
+
